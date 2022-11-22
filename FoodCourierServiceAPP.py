@@ -82,12 +82,14 @@ def purchaseproducts():
     menu()
   if userorder in DBProducts:
     userbasket.append(userorder)
-    print("\n This is your basket: \n")
+    purchase_result = "\n This is your basket: \n"
+    print(purchase_result)
     print(userbasket)
     menu()
   else:
-    print("That is not one of the products... \n")
-    menu()    
+    purchase_result = "That is not one of the products... \n"
+    print(purchase_result)
+    menu()
 
 
 
@@ -270,4 +272,46 @@ def menu():
   
 menu()
 
-print("Thank you for ordering.")
+#print("Thank you for ordering.")
+
+
+
+# TESTS:
+#------------------------------------------------------------------------------------------------------------
+
+def test_purchaseproducts():
+  print("tests if user inputted product to order is in product list database")
+  test_userorder = input("enter product to order: ")
+  try: 
+    assert test_userorder in DBProducts
+  except: 
+    print("Assertion Error. Product entered is not in product list.")
+
+#test_purchaseproducts()
+
+def test_user_choose_courier1():
+  print("tests if user inputted courier is in courier database.")
+  test_chosencourier = input(("\n Enter courier name that you would like to hire from courier list: \n"))
+  try:
+    assert test_chosencourier in DBCouriers
+  except:
+    print("That is not one of the couriers... \n")
+
+
+#test_user_choose_courier1()
+
+
+
+
+def test_user_choose_courier2():
+  print("\n This tests if input is already in list of hired couriers. \n")
+  test_chosencourier = input("\n Enter courier name that you would like to hire from courier list: \n")
+  if test_chosencourier in DBCouriers:
+    try:
+      assert test_chosencourier not in usercourier
+    except:
+      print("\n You have already hired this courier. \n")
+  else:
+    print("Might not be in courier list")
+ 
+#test_user_choose_courier2()
