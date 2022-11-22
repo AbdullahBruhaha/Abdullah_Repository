@@ -15,6 +15,24 @@ orderstatus = []
 #userorder = []
 userbasket = []
 
+with open("UserSavedBasket.txt", 'r') as filereader:
+    for line in filereader:
+        # remove linebreak from a current name
+        # linebreak is the last character of each line
+        x = line[:-1]
+
+        # add current item to the list
+        userbasket.append(x)
+
+
+with open("UserSavedCourier.txt", 'r') as filereader:
+    for line in filereader:
+        # remove linebreak from a current name
+        # linebreak is the last character of each line
+        x = line[:-1]
+
+        # add current item to the list
+        usercourier.append(x)
 
 DBProducts = []
 # open file and read the content in a list
@@ -42,8 +60,7 @@ with open("CourierNames.txt", 'r') as filereader:
 
 #products = ["cheese sandwich", "tuna sandwich", "chicken sandwich"]
 #couriers = ["bob", "jim", "john"]
-userorderline = [userbasket, usercourier, orderstatus]
-userbasket = []
+#userorderline = [userbasket, usercourier, orderstatus]
 
 
 
@@ -56,14 +73,7 @@ def linear_search(arr,x):
     else:
       return "query not found"
       
-#def product_search(products_list,search_item):
- # for product in product_list:
-  #  if product == search_item:
-   #   return True
-    #  print("This exists in the database")
-    #else:
-    #  return False
-    #  print("query not found")
+
 
 # allow user to add a product to their basket to purchase
 def purchaseproducts():
@@ -78,6 +88,8 @@ def purchaseproducts():
   else:
     print("That is not one of the products... \n")
     menu()    
+
+
 
 #allow user to choose a courier to hire
 def user_choose_courier():
@@ -146,27 +158,61 @@ def firecourier():
   finally:
     menu()
    
-#
+
+def SaveBasket():
+  with open("UserSavedBasket.txt", "w+") as filereader:
+    for item in userbasket:
+        filereader.write("%s\n" % item)
+    print("Saved")
+  menu()
+
+def ClearBasket():
+  userbasket = []
+  with open("UserSavedBasket.txt","w+"):
+    print("Cleared")
+  menu()
+
+def SaveCourier():
+  with open("UserSavedCourier.txt", "w+") as filereader:
+    for item in usercourier:
+        filereader.write("%s\n" % item)
+    print("Saved")
+  menu()
+
+def ClearCourier():  
+  usercourier = []
+  with open("UserSavedCourier.txt","w+"):
+    print("\n Cleared \n")
+  menu()
+
 def show_command_list():  
-    print("\n If you would like to see the product list, type show products.")
+    print("\n If you would like to see the product list, type show products.\n")
     
-    print("\n If you would like to purchase a product, type purchase products.")
+    print("\n If you would like to purchase a product, type purchase products.\n")
     
-    print("\n If you would like to see your current basket, type show basket.")
+    print("\n If you would like to see your current basket, type show basket. \n")
+
+    print("\n If you would like to save your current basket, type save basket. \n")
     
-    print("\n If you would like to remove an item from your basket, type remove item.")
+    print("\n If you would like to clear your current basket, type clear basket. \n")
+
+    print("\n If you would like to remove an item from your basket, type remove item. \n")
     
-    print("\n If you would like to see the courier list, type show couriers.")
+    print("\n If you would like to see the courier list, type show couriers. \n")
     
-    print("\n If you would like to hire a courier, type hire courier.")
+    print("\n If you would like to hire a courier, type hire courier. \n")
     
-    print("\n If you would like to see your currently hired couriers, type show hired couriers.")
+    print("\n If you would like to see your currently hired couriers, type show hired couriers. \n")
     
-    print("\n If you would like to remove a courier from your list of hired couriers, type fire courier.")
+    print("\n If you would like to remove a courier from your list of hired couriers, type fire courier. \n")
     
-    print("\n If you are finished, type finished.")
+    print("\n If you would like to save your current courier list, type save courier. \n")
     
-    print()
+    print("\n If you would like to clear your current courier list, type clear courier. \n")
+
+
+    print("\n If you are finished, type finished.\n \n")
+    
     menu()
 
 
@@ -177,15 +223,27 @@ def menu():
   if cmd == "command list":
     show_command_list()
     
-  elif cmd == "show products" or cmd == "show product":
+  elif cmd == "show product" or cmd == "show products":
     displayproducts()
     
-  elif cmd == "purchase products" or cmd == "purchase product":
+  elif cmd == "purchase product" or cmd == "purchase products":
     purchaseproducts()
   
-  elif cmd == "remove item":
+  elif cmd == "remove item" or cmd == "remove items":
     removeitem()
+  
+  elif cmd == "save basket":
+    SaveBasket()
+  
+  elif cmd == "clear basket":
+    ClearBasket()
     
+  elif cmd == "save courier" or cmd == "save couriers":
+    SaveCourier()
+
+  elif cmd == "clear courier" or cmd == "clear couriers":
+    ClearCourier()
+
   elif cmd == "show couriers" or cmd == "show courier":
     displaycouriers()
     
@@ -201,7 +259,7 @@ def menu():
   elif cmd == "fire courier" or cmd == "fire couriers":
     firecourier()
     
-  elif cmd == "finished":
+  elif cmd == "finished" or cmd == "finish":
     print("Thank you for ordering.")
     exit()
     
