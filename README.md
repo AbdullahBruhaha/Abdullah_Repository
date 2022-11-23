@@ -39,6 +39,7 @@ I would like to apply the usage of CSV files or JSON files to store the user dat
 Other than that, I would also like to improve on my code by utilising Object Oriented Programming in order to implement more features to the app easily.
 
 Additionally, If I could go back to the start, I would focus on implementing my code in a manner that would allow me to focus on setting up testing from the start. 
+I would also like to create a database for the customer's details and utilise dictionaries and csv files to allow the user to update the status of the orders and add/change pricing for the different products.
 
 
 
