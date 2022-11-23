@@ -7,7 +7,7 @@ CLI Food delivery service app created for Generation's Mini-project for the firs
 
 
 Client requirements
-As of Week 4 of the project:
+
 
 As a user I want to:
 • create a product, courier, or order dictionary and add it to a list
@@ -18,11 +18,14 @@ As a user I want to:
 
 
 
+
 How did your design go about meeting the project's requirements?
 
 As a whole, the design that I created could ultimately match the spirit of the projects requirements.
 Each requirement needed to be met and tested thoroughly to match the final intended version of the product.
 I planned and designed each requirement seperately and this allowed me to develop each feature individually and compounded them into the final product.
+
+I created one single menu using functions to allow the user to alter the list of products and couriers and add the customer purchase to a basket.
 
 
 
@@ -31,6 +34,7 @@ How did you guarantee the project's requirements?
 I made certain that each project requirement was completed and its efficacy guaranteed through developing each requirement individually.
 I also had to ensure that each requirement was easily testable, so that the user would be able to utilise the app without any errors.
 
+I utilised testing to guarantee that each requirement would work effectively. 
 
 
 If you had more time, what is one thing you would improve upon?
