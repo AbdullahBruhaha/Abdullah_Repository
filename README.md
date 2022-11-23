@@ -7,6 +7,7 @@ CLI Food delivery service app created for Generation's Mini-project for the firs
 
 
 Client requirements
+As of Week 4 of the project:
 
 As a user I want to:
 • create a product, courier, or order dictionary and add it to a list
@@ -36,6 +37,8 @@ If you had more time, what is one thing you would improve upon?
 
 I would like to apply the usage of CSV files or JSON files to store the user data rather than a txt file to further follow the project requirements. However, I still am able to follow the project requirement of persistent data using txt files.
 Other than that, I would also like to improve on my code by utilising Object Oriented Programming in order to implement more features to the app easily.
+
+Additionally, If I could go back to the start, I would focus on implementing my code in a manner that would allow me to focus on setting up testing from the start. 
 
 
 
